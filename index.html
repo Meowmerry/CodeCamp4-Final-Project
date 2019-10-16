@@ -2,15 +2,38 @@
 <html lang="en-US">
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+        <title>MyResume</title>
+    </head>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="css/stly.css">
+    <body>
+            <style>
+                    body {
+                      background-color: rgb(200, 182, 202);
+                      color: black;
+                    }
+                    
+                    /* On screens that are 992px wide or less, the background color is blue */
+                    @media screen and (max-width: 992px) {
+                      body {
+                        background-color: rgb(88, 86, 88);
+                        color: white;
+                      }
+                    }
+                    
+                    /* On screens that are 600px wide or less, the background color is olive */
+                    @media screen and (max-width: 600px) {
+                      body {
+                        background-color: olive;
+                        color: white;
+                      }
+                    }
+                    </style>
 
-    <title>MyResume</title>
-</head>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/stly.css">
-<body>
     <div class="menubar">
         <div class="container">
                 <div class="logo">
@@ -37,7 +60,7 @@
                 <img id="changeColor" src="img/Photoinfo.png" title="Click to change webpage color" alt=" style="style="max-width:100%;height:auto;">
                 <script>
                  const changeColor = document.getElementById('changeColor'),
-                        colors      = ['pink','red', 'green', 'blue','grey'];
+                        colors      = ['pink', 'green', 'grey','tan'];
                         let   colorIndex  = 0;
 
                         changeColor.addEventListener('click', () => {
@@ -74,10 +97,11 @@
 
         <section class="aboutMe" >
                 <div class="container">
-                        <div class="aboutMe_area">
-                            <div class="aboutMe_text">
-                                <div class="column1">
-
+                <div class="aboutMe_area">
+                    <div class="aboutMe_text">
+                     <div class="column1">
+                    <div class="row">
+                                               
                     <h2 >ALL ABOUT ME:</h2>
                     <p >A Planning and Sales Marketing professional with an exposure of 13 years in providing exceptional planning sales and Marketing in performs my tasks with outstanding working skills is Especially skilled at building effective, productive working relationships with clients and staff. </p>
                     <h2>ACCOMPLISHMENTS:</h2>
@@ -87,49 +111,55 @@
                         <li>Seeking a challenging management position in the customer service field that offers extensive contact with the public.</li>
                         <li>Energetic self-starter with excellent analytical, organizational, and creative skills.</li>
                       </ul>  
+                                
                       <h2>MAJOR AND COMPUTER SKILLS:</h2>
-                      <script type="text/javascript">
-                           var listitem = 0;
-                           function addToList() {
-                                   if (listitem >=4) {
-                                   listitem = 0;
-                               }
-                                   if (listitem == 0) {
-                           var skills = "Good skill in English and know Spanihs.";
-                               }
-                                   if (listitem == 1) {
-                           var skills = "Strategic Sales & Marketing Campaigns.";
-                               }
-                                   if (listitem == 2) {
-                           var skills = "Microsoft Word, Excels, Adobe Photoshop, Power Point, E-mails, Internet.";
-                               }
-                                   if (listitem == 3) {
-                           var skills = "Strong Sales Presentations / Closing success";
-                               }
-                               listitem++
-                           var newnode=document.createElement("LI");
-                           var textnode=document.createTextNode(skills);
-                               newnode.append(textnode);
-                               document.getElementById("myskills").appendChild(newnode);
-                               }
-                      </script>
-                      <script>
-                          function removeFromList(){
-                               var list = document.getElementById("myskills");
-                               list.removeChild(list.childNodes[0]);
-                          }
-                      </script>
-                        
-                           <ul id="myskills">
-                               <li>Good skill in English and know Spanish.</li>
-                               <li>Strategic sales & Marketing campaigns.</li>
-                               <li>Microsoft Word, Excels, Adobe Photoshop, Power Point, E-mails, Internet.</il>
-                               <li>Strong Sales presentations / Closing success"</li>
-                           </ul> 
-   
-                           <button onclick="addToList()">ADD SKILLS</button>
-                           <button onclick="removeFromList()">REMOVE SKILLS</button>
 
+                      <input type="text" id="myInput" placeholder="New skill">
+                      <br></br>
+                      <button onclick="newElement()" class="addBtn">Add Skills</button>
+                      <button onclick="removeFromList()" class="addBtn">REMOVE SKILLS</button>
+                      <br>
+                     
+                    <ul id="myUL">
+                      <li>Good skill in English and know Spanish.</li>
+                      <li>Strategic sales & Marketing campaigns.</li>
+                      <li>Microsoft Word, Excels, Adobe Photoshop, Power Point, E-mails, Internet.</li>
+                      <li>Strong Sales presentations / Closing success"</li>
+                      <li>HTML, CSS, JavaScript</li>                                 
+                 </ul>
+
+                 <script>
+                        // Create a new list item when clicking on the "Add" button
+                               function newElement() {
+                                   var li = document.createElement("li");
+                                   var inputValue = document.getElementById("myInput").value;
+                                   var t = document.createTextNode(inputValue);
+                                   li.appendChild(t);
+                                   if (inputValue === '') {
+                                       alert("You must write something!");
+                                   } else {
+                                       document.getElementById("myUL").appendChild(li);
+                                   }
+                                   document.getElementById("myInput").value = "";
+                       
+                                   var span = document.createElement("SPAN");
+                                   var txt = document.createTextNode("\u00D7");
+         
+                                   span.appendChild(txt);
+                                   li.appendChild(span);
+                                   span.className = "close";   
+                                   for (i = 0; i < close.length; i++) {
+                                   close[i].onclick = function () {
+                                   var div = this.parentElement;
+                                   div.style.display = "none";
+                       }
+                   }
+               }
+                                   function removeFromList(){
+                                       var list = document.getElementById("myUL");
+                                        list.removeChild(list.childNodes[0]);
+                                    }
+                           </script>
 
                       <h2 >CONTACT INFO:</h2>
                       <P>Mobile.: + 66 65 623 3306</P>
@@ -145,6 +175,7 @@
                           <a href="https://www.youtube.com/watch?v=lgT_XvJgPNs&t=8s" target="_blank">Video Interview in Spanish</a>.
                           </p> 
                           <br>
+                            </div>
                              </div>
                             </div>
                         </div>
@@ -156,24 +187,23 @@
                             <div class="experience_area">
                                 <div class="experience_text">
                                   <div class="column2">
-                  <div id="bg">
-                 <h2>EXPERIENCE  : </h2></div>
-                 
-
-                    <h3 >EXPORT OFFICE</h3>
-                    <h4>MASTERPAC ASIA THAILAND,  2012  to 2017 </h4>
-                    <ul>
-                        <li>Finding new customers and service our customer.</li>
-                        <li>Maintaining a superior service standard, conceptualizing and implementing new and improved service standard.</li>
-                        <li>Implement Marketing & Sales Plan for new and existing business expansions - demand .</li>
-                        <li>Onsite with engineer team, visit customer on oversea, Laos, Vietnam, Cambodia, Myanmar….</li>
-                        <li>Finding new customers and service our customer.</li>
-                        <li>Responsible for achieving sale target and controlling budget.</li>
-                        <li>Follow up on the Customer & Sales and Supply Chain process.</li>
-                        <li>Process Invoice Packing list for logistics service transfer shipping business.</li>
-                      </ul>  
-                      <h3>SALE REPRESENTATIVE :</h3>
-                      <h4>DTK AD, LIMITED COMPANY,  2006 to 2011 </h4>
+                                   <div id="bg">
+                     <h2>EXPERIENCE  : </h2></div>
+                           
+                     <h3 >EXPORT OFFICE</h3>
+                        <h4>MASTERPAC ASIA THAILAND,  2012  to 2017 </h4>
+                             <ul>
+                                <li>Finding new customers and service our customer.</li>
+                                <li>Maintaining a superior service standard, conceptualizing and implementing new and improved service standard.</li>
+                                <li>Implement Marketing & Sales Plan for new and existing business expansions - demand .</li>
+                                <li>Onsite with engineer team, visit customer on oversea, Laos, Vietnam, Cambodia, Myanmar….</li>
+                                <li>Finding new customers and service our customer.</li>
+                                <li>Responsible for achieving sale target and controlling budget.</li>
+                                <li>Follow up on the Customer & Sales and Supply Chain process.</li>
+                                <li>Process Invoice Packing list for logistics service transfer shipping business.</li>
+                                </ul>  
+                                <h3>SALE REPRESENTATIVE :</h3>
+                                <h4>DTK AD, LIMITED COMPANY,  2006 to 2011 </h4>
 
                     <ul>
                         <li>Finding sales opportunity and find new customer and service our customer..</li>
@@ -208,37 +238,33 @@
             </div>
         </section>
 
-            <div class="clearfix"></div>
+        <div class="clearfix"></div>
 
+        <section class="container">
 
-            <section class="container">
-
-                <div class="contact">
-                    <div class="contact_area">
-                        <h1>Contact to know more about me</h1>
-                        <form>
-                            <label>Your Name</label><br>
-                            <input type="text" placeholder="Your Name"><br>
-                            <label>Your Email</label><br>
-                            <input type="email" placeholder="Your Email"><br>
-                            <label>Your Subject</label><br>
-                            <input type="text" placeholder="Your Subject"><br>
-                            <label>Your Message</label><br>
-                            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-                            <br><br>
-                            <button>send</button><br>
-                        </form>
-                    </div>
+            <div class="contact">
+                <div class="contact_area">
+                    <h1>Contact Us</h1>
+                    <form>
+                        <label>Your Name</label><br>
+                        <input type="text" placeholder="Your Name"><br></br></br>
+                        </br><label>Your Email</label><br>
+                        <input type="email" placeholder="Your Email"><br><br></br></br>
+                        <label>Your Subject</label><br>
+                        <input type="text" placeholder="Your Subject"><br><br></br></br>
+                        <label>Your Message</label><br>
+                        <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea><br><br>
+                        <button>send</button><br>
+                    </form>
                 </div>
-            </section>
+            </div>
+        </section>
 
-    
+        <footer>
+                <p>Copyright &copy; 2017 | THASANEE</p>
+        </footer>   
+        
+        
 
-            <footer>
-                    <p>Copyright &copy; 2019 | Thasanee</p>
-            </footer>   
-            
-             
-
-    </body>
+</body>
 </html>
