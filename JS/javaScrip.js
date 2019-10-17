@@ -22,6 +22,7 @@ function mynameFunction() {
   }
 
 // Function to add and remove skills
+// Create a new list item when clicking on the "Add" button
 function newElement() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("myInput").value;
@@ -34,22 +35,10 @@ function newElement() {
   }
   document.getElementById("myInput").value = "";
 
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
+   }
 
-  span.appendChild(txt);
-  li.appendChild(span);
-  span.className = "close";   
-  for (i = 0; i < close.length; i++) {
-  close[i].onclick = function () {
-  var div = this.parentElement;
-  div.style.display = "none";
-}
-}
-}
   function removeFromList(){
       var list = document.getElementById("myUL");
        list.removeChild(list.childNodes[0]);
    }
-
 
